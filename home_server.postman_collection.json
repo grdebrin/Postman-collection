@@ -1,0 +1,330 @@
+{
+	"info": {
+		"_postman_id": "f1c896a5-8124-46c9-ab1c-8c963a5f9361",
+		"name": "home_server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25342914"
+	},
+	"item": [
+		{
+			"name": "name",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.name).to.eql(\"Georgiy Debrin\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://193.233.232.239:5000/name",
+					"protocol": "http",
+					"host": [
+						"193",
+						"233",
+						"232",
+						"239"
+					],
+					"port": "5000",
+					"path": [
+						"name"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "profession",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Experience\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Experience).to.eql(\"2022 - present\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Profession\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Profession).to.eql(\"QA Engineer\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://193.233.232.239:5000/profession",
+					"protocol": "http",
+					"host": [
+						"193",
+						"233",
+						"232",
+						"239"
+					],
+					"port": "5000",
+					"path": [
+						"profession"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "social",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response GitHub\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.GitHub).to.eql(\"grdebrin\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response LinkedIn\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.LinkedIn).to.eql(\"georgiy-debrin\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Telegram\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Telegram).to.eql(\"gr_debrin\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://193.233.232.239:5000/social",
+					"protocol": "http",
+					"host": [
+						"193",
+						"233",
+						"232",
+						"239"
+					],
+					"port": "5000",
+					"path": [
+						"social"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "salary",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let json_request = request.data;\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Name).to.eql(json_request.name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Expected_salary\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Expected_salary).to.eql(json_request.salary);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Georgiy2",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "30",
+							"type": "text"
+						},
+						{
+							"key": "salary",
+							"value": "100002",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://193.233.232.239:5000/salary",
+					"protocol": "http",
+					"host": [
+						"193",
+						"233",
+						"232",
+						"239"
+					],
+					"port": "5000",
+					"path": [
+						"salary"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "hobby",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let json_request = request.data;\r",
+							"\r",
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Name\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Name).to.eql(json_request.name);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Hobby_1\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Hobby_1).to.eql(\"Music\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Hobby_2\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Hobby_2).to.eql(\"Reading\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response Hobby_3\", function () {\r",
+							"    var jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData.Hobby_3).to.eql(\"Investing\");\r",
+							"});\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "Georgiy",
+							"type": "text"
+						},
+						{
+							"key": "age",
+							"value": "30",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://193.233.232.239:5000/hobby",
+					"protocol": "http",
+					"host": [
+						"193",
+						"233",
+						"232",
+						"239"
+					],
+					"port": "5000",
+					"path": [
+						"hobby"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
